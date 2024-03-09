@@ -4,7 +4,7 @@ setup(
       name="netstorm",
       version="1.0.0",
       url="https://github.com/im-strange/netstorm.git",
-      author="Samuel Genoguin",
+      author="im-strange",
       description="DDos with Python and Socket",
       py_modules=["netstorm"],
       install_requires=[
